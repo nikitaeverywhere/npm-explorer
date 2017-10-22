@@ -9,6 +9,8 @@ gulp.task("move files", () => gulp.src([
 	"!src/react/**/*",
 	"!src/scss",
 	"!src/scss/**/*",
+	"!src/utils",
+	"!src/utils/**/*",
 	"!src/index.jsx",
 	"!src/index.scss",
 	"!src/.babelrc"
