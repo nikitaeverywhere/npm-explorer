@@ -1,0 +1,46 @@
+{
+  "name": "npm-explorer",
+  "version": "0.0.1",
+  "description": "Web file manager for NPM",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "gulp build & webpack -p",
+    "dev": "gulp build & webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZitRos/npm-explorer.git"
+  },
+  "keywords": [
+    "npm",
+    "explorer",
+    "file",
+    "browser",
+    "manager",
+    "content",
+    "viewer"
+  ],
+  "author": "ZitRo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZitRos/npm-explorer/issues"
+  },
+  "homepage": "https://github.com/ZitRos/npm-explorer#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "dom-loaded": "^1.0.1",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "gulp-sass": "^3.1.0"
+  }
+}
