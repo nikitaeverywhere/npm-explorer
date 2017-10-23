@@ -31,5 +31,5 @@ input {
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2); }
 
 #welcome-form {
-  text-align: center;
-  padding: 10px; }
+  padding: 10px;
+  text-align: center; }

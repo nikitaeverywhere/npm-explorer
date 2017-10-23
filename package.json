@@ -1,6 +1,6 @@
 {
   "name": "npm-explorer",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Web file manager for NPM",
   "main": "index.js",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "gulp build & webpack -p",
-    "dev": "gulp build & webpack"
+    "dev": "gulp build & webpack --devtool source-map"
   },
   "repository": {
     "type": "git",
@@ -29,16 +29,36 @@
     "url": "https://github.com/ZitRos/npm-explorer/issues"
   },
   "homepage": "https://github.com/ZitRos/npm-explorer#readme",
+  "babel": {
+    "presets": [
+      "react",
+      "es2015",
+      "stage-3"
+    ],
+    "plugins": [
+      "transform-es2015-modules-commonjs",
+      "transform-async-to-generator",
+      "transform-class-properties",
+      ["transform-runtime", {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true }]
+    ]
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
     "dom-loaded": "^1.0.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "js-untar": "^0.1.5",

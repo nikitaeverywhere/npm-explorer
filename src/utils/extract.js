@@ -3,13 +3,15 @@ import untar from "js-untar";
 import { inflate } from "pako/lib/inflate.js";
 
 export default function extract (url, callback) {
-	loadTar(url, (buf) => {
+	loadTar(url, (err, buf) => {
+		if (err)
+			return callback(err);
 		try {
 			untar(inflate(buf).buffer).then((files) => {
-				callback(files);
+				callback(null, files);
 			});
 		} catch (e) {
-			callback([]);
+			callback("Unable to decompress file " + url);
 		}
 	});
 }

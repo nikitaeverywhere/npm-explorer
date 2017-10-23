@@ -1,7 +1,6 @@
 import React from "react";
 import { Treebeard } from "react-treebeard";
-import extract from "../utils/extract.js";
-import transformFiles from "../utils/formFileTree.js";
+import getInfo from "../utils/packageInfo.js";
 
 export default class App extends React.Component {
 
@@ -11,15 +10,33 @@ export default class App extends React.Component {
 			name: "loading..."
 		}
 	};
+	mounted = false;
 
-	constructor (props) {
-		super(props);
-		//"https://registry.npmjs.org/react-xmasonry/-/react-xmasonry-2.5.2.tgz"
-		extract("https://registry.npmjs.org/react-xmasonry/-/react-xmasonry-2.5.2.tgz", (files) => {
-			this.setState({
-				tree: transformFiles(files)
-			})
+	async componentDidMount () {
+
+		let packageInfo;
+
+		this.mounted = true;
+
+		try {
+			packageInfo = await getInfo(location.hash.slice(1));
+			console.log(packageInfo);
+		} catch (e) {
+			return this.setState({
+				tree: {
+					name: e
+				}
+			});
+		}
+
+		this.setState({
+			tree: packageInfo.filesTree
 		});
+
+	}
+
+	componentWillUnmount () {
+		this.mounted = false;
 	}
 
 	onToggle (node, toggled) {
@@ -30,11 +47,9 @@ export default class App extends React.Component {
 	}
 
 	render () {
-		console.log("render");
 		return [
 			<div style={{ textAlign: "center" }}>
-				This service is under development right now. <br/>
-				By the way, you can check react-xmasonry package right now:
+				This service is under active development right now.
 			</div>,
 			<Treebeard onToggle={ this.onToggle.bind(this) }
 			           data={ this.state.tree }/>

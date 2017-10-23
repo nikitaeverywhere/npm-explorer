@@ -6,7 +6,10 @@ export default function load (source, callback) {
 	req.responseType = "arraybuffer";
 
 	req.onload = function () {
-		callback(req.response || []); // not oReq.responseText
+		callback(null, req.response); // not oReq.responseText
+	};
+	req.onerror = function () {
+		callback("Unable to download " + source);
 	};
 
 	req.send(null);

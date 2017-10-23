@@ -13,7 +13,7 @@ gulp.task("move files", () => gulp.src([
 	"!src/utils/**/*",
 	"!src/index.jsx",
 	"!src/index.scss",
-	"!src/.babelrc"
+	"!src/.babelrc12"
 ]).pipe(gulp.dest(buildTo)));
 
 gulp.task("scss", () => gulp.src("src/index.scss")

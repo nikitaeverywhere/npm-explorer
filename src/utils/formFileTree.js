@@ -17,10 +17,10 @@ function sortTree (root) {
 
 }
 
-export default function formFileTree (files) {
+export default function formFileTree (rootName, files) {
 
 	const root = {
-		name: "react-xmasonry",
+		name: rootName,
 		toggled: true,
 		children: []
 	};
