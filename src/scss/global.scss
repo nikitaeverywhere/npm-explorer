@@ -5,7 +5,41 @@ html, body, #root {
     width: 100%;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     color: $foregroundColor;
     font-size: 16px;
     font-family: sans-serif;
+}
+
+.central {
+
+    display: table;
+    height: 100%;
+    min-width: 100%;
+
+    > * {
+
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+
+        > * {
+            display: inline-block;
+            text-align: start;
+            //max-height: 100%; // doesn't work on iPhone, crashes the user interface
+            overflow: auto;
+        }
+
+    }
+
+}
+
+input {
+    padding: 6px;
+    border-radius: 15px;
+    border: 1px solid gray;
+    font-size: inherit;
+    color: inherit;
+    outline: none;
+    box-shadow: 0 3px 7px rgba(0,0,0,.2);
 }

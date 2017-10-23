@@ -3,6 +3,33 @@ html, body, #root {
   width: 100%;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   color: #555;
   font-size: 16px;
   font-family: sans-serif; }
+
+.central {
+  display: table;
+  height: 100%;
+  min-width: 100%; }
+  .central > * {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle; }
+    .central > * > * {
+      display: inline-block;
+      text-align: start;
+      overflow: auto; }
+
+input {
+  padding: 6px;
+  border-radius: 15px;
+  border: 1px solid gray;
+  font-size: inherit;
+  color: inherit;
+  outline: none;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2); }
+
+#welcome-form {
+  text-align: center;
+  padding: 10px; }

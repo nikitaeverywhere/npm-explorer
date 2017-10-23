@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Web file manager for NPM">
-    <title>NPM Explorer</title>
-    <script type="text/javascript" src="index.js" async defer></script>
-    <link rel="stylesheet" href="index.css"/>
+	<meta charset="UTF-8"/>
+	<meta name="author" content="https://nikita.tk"/>
+	<meta name="keywords" content="npm,package,content,explorer,file,browser,manager,viewer"/>
+	<meta name="description" content="NPM package file manager"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+	<meta name="mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<title>NPM Explorer</title>
+	<script type="text/javascript" src="index.js" async defer></script>
+	<link rel="stylesheet" href="index.css"/>
 </head>
 <body>
-    <div id="root"></div>
+<div id="root">
+	<div class="central">
+		<div>
+			<form id="welcome-form">
+				<h1>NPM Explorer</h1>
+				<h3>Find out what files are in a NPM package</h3>
+				<input name="package-name"
+				       placeholder="Package name"/>
+			</form>
+		</div>
+	</div>
+</div>
 </body>
 </html>
