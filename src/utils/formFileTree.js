@@ -30,6 +30,9 @@ export default function formFileTree (rootName, files) {
 		let obj = root;
 		const name = file.name.split(/\//g);
 
+		if (name[0] !== "package") // tar can optionally have paxHeader folder inside
+			continue;
+
 		for (let i = 1; i < name.length - 1; ++i) {
 
 			let tChild = null;

@@ -1,6 +1,6 @@
 {
   "name": "npm-explorer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Web file manager for NPM",
   "main": "index.js",
   "directories": {
@@ -39,10 +39,14 @@
       "transform-es2015-modules-commonjs",
       "transform-async-to-generator",
       "transform-class-properties",
-      ["transform-runtime", {
-        "helpers": false,
-        "polyfill": false,
-        "regenerator": true }]
+      [
+        "transform-runtime",
+        {
+          "helpers": false,
+          "polyfill": false,
+          "regenerator": true
+        }
+      ]
     ]
   },
   "devDependencies": {
