@@ -4,7 +4,9 @@ Online file explorer for [NPM](https://www.npmjs.com/).
 Visit [zitros.github.io/npm-explorer](https://zitros.github.io/npm-explorer).
 
 The main purpose of this service is improve a quality of NPM packages, primarily because many people
-publish a lot of unnecessary files to NPM (like CI configs, tests, build tools, etc).
+publish a lot of unnecessary files to NPM (like CI configs, tests, build tools or even whole repositories).
+This service will help to check what files does NPM package include along with some other metrics regarding
+to the package quality.
 
 Currently the service is under development.
 
