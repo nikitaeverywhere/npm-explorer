@@ -1,6 +1,6 @@
 # [npm-explorer](https://zitros.github.io/npm-explorer)
 
-Online file explorer for NPM.
+Online file explorer for NPM. Visit [zitros.github.io/npm-explorer](https://zitros.github.io/npm-explorer).
 
 Development
 -----------
