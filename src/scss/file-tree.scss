@@ -1,0 +1,45 @@
+@import "const";
+
+.file-tree {
+
+	display: block;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+
+	> .item {
+
+		$iconMargin: 2px;
+		$square: $sizeSmall + $iconMargin * 2;
+
+		display: block;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+
+		> .icon {
+
+			width: $sizeSmall;
+			height: $sizeSmall;
+			float: left;
+			margin: $iconMargin;
+
+		}
+
+		> .name {
+
+			line-height: $square;
+			padding-left: $iconMargin;
+
+		}
+
+		> .file-tree {
+
+			margin-left: $square;
+
+		}
+
+	}
+
+}

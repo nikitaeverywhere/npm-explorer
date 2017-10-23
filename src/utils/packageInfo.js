@@ -50,7 +50,7 @@ function parsePackageDefinition (pkg, callback) {
 
 		callback(null, {
 			pkg: pkg,
-			filesTree: transformFiles(pkg.name, files)
+			filesTree: [transformFiles(pkg.name, files)]
 		});
 
 	});

@@ -1,7 +1,7 @@
 export default function load (source, callback) {
 
 	const req = new XMLHttpRequest();
-	req.overrideMimeType('text\/plain; charset=x-user-defined');
+	req.overrideMimeType('application/octet-stream; charset=binary');
 	req.open("GET", source, true);
 	req.responseType = "arraybuffer";
 

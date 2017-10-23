@@ -1,1 +1,90 @@
 $foregroundColor: #555;
+
+$sizeTiny: 16px;
+$sizeSmall: 24px;
+$sizeMedium: 32px;
+$sizeLarge: 48px;
+$sizeHuge: 64px;
+$sizeGiant: 96px;
+
+$defaultTransitionStyle: ease;
+$defaultTransitionDuration: .3s;
+$defaultBorderRadius: 3px;
+$defaultTransition: all $defaultTransitionDuration $defaultTransitionStyle;
+$fastTransition: all $defaultTransitionDuration / 2 $defaultTransitionStyle;
+
+@mixin user-select ($value: none) {
+	-webkit-user-select: $value;
+	-moz-user-select: $value;
+	-ms-user-select: $value;
+	user-select: $value;
+}
+
+@mixin transition ($options...) {
+	$max: length($options);
+	$transitions: '';
+	@for $i from 1 through $max {
+		$transitions: #{$transitions + nth($options, $i)};
+		@if $i < $max {
+			$transitions: #{$transitions + ", "};
+		}
+	}
+	-webkit-transition: $transitions;
+	-moz-transition: $transitions;
+	-ms-transition: $transitions;
+	-o-transition: $transitions;
+	transition: $transitions;
+}
+
+@mixin transform ($options...) {
+	$max: length($options);
+	$transformations: '';
+	@for $i from 1 through $max {
+		$transformations: #{$transformations + nth($options, $i)};
+		@if $i < $max {
+			$transformations: #{$transformations + ", "};
+		}
+	}
+	-webkit-transform: $transformations;
+	-moz-transform: $transformations;
+	-ms-transform: $transformations;
+	-o-transform: $transformations;
+	transform: $transformations;
+}
+
+@mixin animation-delay ($options) {
+	-webkit-animation-delay: $options;
+	-moz-animation-delay: $options;
+	-o-animation-delay: $options;
+	animation-delay: $options;
+}
+
+@mixin keyframes ($animationName) {
+	@-webkit-keyframes #{$animationName} {
+		@content;
+	}
+	@-moz-keyframes #{$animationName} {
+		@content;
+	}
+	@-o-keyframes #{$animationName} {
+		@content;
+	}
+	@keyframes #{$animationName} {
+		@content;
+	}
+}
+
+@mixin animation ($animate...) {
+	$max: length($animate);
+	$animations: '';
+	@for $i from 1 through $max {
+		$animations: #{$animations + nth($animate, $i)};
+		@if $i < $max {
+			$animations: #{$animations + ", "};
+		}
+	}
+	-webkit-animation: $animations;
+	-moz-animation:    $animations;
+	-o-animation:      $animations;
+	animation:         $animations;
+}

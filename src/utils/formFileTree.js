@@ -21,7 +21,6 @@ export default function formFileTree (rootName, files) {
 
 	const root = {
 		name: rootName,
-		toggled: true,
 		children: []
 	};
 

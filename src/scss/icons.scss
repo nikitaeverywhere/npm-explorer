@@ -1,0 +1,54 @@
+@import "./const";
+
+.icon {
+
+	display: inline-block;
+	width: $sizeSmall;
+	height: $sizeSmall;
+	position: relative;
+	overflow: hidden;
+	background-size: $sizeSmall;
+	background: no-repeat center center;
+	vertical-align: middle;
+	border: none;
+	padding: 0;
+
+	&.tiny { width: $sizeTiny; height: $sizeTiny; background-size: $sizeTiny; }
+	&.small { width: $sizeSmall; height: $sizeSmall; background-size: $sizeSmall; }
+	&.medium { width: $sizeMedium; height: $sizeMedium; background-size: $sizeMedium; }
+	&.large { width: $sizeLarge; height: $sizeLarge; background-size: $sizeLarge; }
+	&.huge { width: $sizeHuge; height: $sizeHuge; background-size: $sizeHuge; }
+	&.giant { width: $sizeGiant; height: $sizeGiant; background-size: $sizeGiant; }
+
+	&.hoverable {
+
+		cursor: pointer;
+		@include transition($fastTransition);
+
+		&:hover {
+			@include transform(scale(1.15));
+		}
+
+	}
+
+	&.floating.left {
+		float: left;
+	}
+
+	&.white {
+		filter: grayscale(100%) brightness(5);
+	}
+
+	&.black {
+		filter: grayscale(100%) brightness(0);
+	}
+
+	&.baseline {
+		vertical-align: baseline;
+	}
+
+}
+
+.icon.file { background-image: url(../icons/file.svg) }
+.icon.folder { background-image: url(../icons/folder.svg) }
+.icon.folder-open { background-image: url(../icons/folder-open.svg) }

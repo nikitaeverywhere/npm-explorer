@@ -30,6 +30,94 @@ input {
   outline: none;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2); }
 
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: hidden;
+  background-size: 24px;
+  background: no-repeat center center;
+  vertical-align: middle;
+  border: none;
+  padding: 0; }
+  .icon.tiny {
+    width: 16px;
+    height: 16px;
+    background-size: 16px; }
+  .icon.small {
+    width: 24px;
+    height: 24px;
+    background-size: 24px; }
+  .icon.medium {
+    width: 32px;
+    height: 32px;
+    background-size: 32px; }
+  .icon.large {
+    width: 48px;
+    height: 48px;
+    background-size: 48px; }
+  .icon.huge {
+    width: 64px;
+    height: 64px;
+    background-size: 64px; }
+  .icon.giant {
+    width: 96px;
+    height: 96px;
+    background-size: 96px; }
+  .icon.hoverable {
+    cursor: pointer;
+    -webkit-transition: all 0.15s ease;
+    -moz-transition: all 0.15s ease;
+    -ms-transition: all 0.15s ease;
+    -o-transition: all 0.15s ease;
+    transition: all 0.15s ease; }
+    .icon.hoverable:hover {
+      -webkit-transform: scale(1.15);
+      -moz-transform: scale(1.15);
+      -ms-transform: scale(1.15);
+      -o-transform: scale(1.15);
+      transform: scale(1.15); }
+  .icon.floating.left {
+    float: left; }
+  .icon.white {
+    filter: grayscale(100%) brightness(5); }
+  .icon.black {
+    filter: grayscale(100%) brightness(0); }
+  .icon.baseline {
+    vertical-align: baseline; }
+
+.icon.file {
+  background-image: url(../icons/file.svg); }
+
+.icon.folder {
+  background-image: url(../icons/folder.svg); }
+
+.icon.folder-open {
+  background-image: url(../icons/folder-open.svg); }
+
 #welcome-form {
   padding: 10px;
   text-align: center; }
+
+.file-tree {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden; }
+  .file-tree > .item {
+    display: block;
+    padding: 0;
+    margin: 0;
+    overflow: hidden; }
+    .file-tree > .item > .icon {
+      width: 24px;
+      height: 24px;
+      float: left;
+      margin: 2px; }
+    .file-tree > .item > .name {
+      line-height: 28px;
+      padding-left: 2px; }
+    .file-tree > .item > .file-tree {
+      margin-left: 28px; }

@@ -1,6 +1,6 @@
 {
   "name": "npm-explorer",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Web file manager for NPM",
   "main": "index.js",
   "directories": {
@@ -68,7 +68,6 @@
     "js-untar": "^0.1.5",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-treebeard": "^2.0.3",
     "webpack": "^3.8.1"
   },
   "dependencies": {
