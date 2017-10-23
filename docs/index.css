@@ -88,13 +88,13 @@ input {
     vertical-align: baseline; }
 
 .icon.file {
-  background-image: url(../icons/file.svg); }
+  background-image: url(icons/file.svg); }
 
 .icon.folder {
-  background-image: url(../icons/folder.svg); }
+  background-image: url(icons/folder.svg); }
 
 .icon.folder-open {
-  background-image: url(../icons/folder-open.svg); }
+  background-image: url(icons/folder-open.svg); }
 
 #welcome-form {
   padding: 10px;
