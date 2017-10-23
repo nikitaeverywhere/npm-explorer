@@ -8,7 +8,7 @@ function sortTree (root) {
 			return -1;
 		if (b.children && !a.children)
 			return 1;
-		return a.name > b.name ? -1 : a.name < b.name ? 1 : 0
+		return a.name > b.name ? 1 : a.name < b.name ? -1 : 0
 	});
 
 	for (const r of root.children) {
