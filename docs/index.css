@@ -109,15 +109,17 @@ input {
   .file-tree > .item {
     display: block;
     padding: 0;
-    margin: 0;
-    overflow: hidden; }
-    .file-tree > .item > .icon {
-      width: 24px;
-      height: 24px;
-      float: left;
-      margin: 2px; }
-    .file-tree > .item > .name {
-      line-height: 28px;
-      margin-left: 28px; }
+    margin: 0; }
+    .file-tree > .item > .head {
+      cursor: pointer;
+      overflow: hidden; }
+      .file-tree > .item > .head > .icon {
+        width: 24px;
+        height: 24px;
+        float: left;
+        margin: 2px; }
+      .file-tree > .item > .head > .name {
+        line-height: 28px;
+        margin-left: 28px; }
     .file-tree > .item > .file-tree {
       margin-left: 28px; }

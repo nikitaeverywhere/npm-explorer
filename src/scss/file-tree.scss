@@ -16,21 +16,27 @@
 		display: block;
 		padding: 0;
 		margin: 0;
-		overflow: hidden;
 
-		> .icon {
+		> .head {
 
-			width: $sizeSmall;
-			height: $sizeSmall;
-			float: left;
-			margin: $iconMargin;
+			cursor: pointer;
+			overflow: hidden;
 
-		}
+			> .icon {
 
-		> .name {
+				width: $sizeSmall;
+				height: $sizeSmall;
+				float: left;
+				margin: $iconMargin;
 
-			line-height: $square;
-			margin-left: $square;
+			}
+
+			> .name {
+
+				line-height: $square;
+				margin-left: $square;
+
+			}
 
 		}
 
