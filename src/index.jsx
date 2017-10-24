@@ -2,6 +2,7 @@ import React from "react";
 import ReactDom from "react-dom";
 import App from "./react/App.jsx";
 import domLoaded from "dom-loaded";
+import { getQueryString } from "./utils/url.js";
 
 function initialize () {
 	ReactDom.render(<App/>, document.getElementById("root"));
@@ -9,7 +10,9 @@ function initialize () {
 
 domLoaded.then(() => {
 
-	if (location.hash) {
+	const queryString = getQueryString();
+
+	if (queryString.p) {
 		return initialize();
 	}
 
@@ -24,7 +27,7 @@ domLoaded.then(() => {
 		if (!packageName)
 			return;
 
-		location.hash = packageName;
+		location.href = "?p=" + packageName;
 		initialize();
 
 	});

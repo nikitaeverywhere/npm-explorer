@@ -1,6 +1,7 @@
 import React from "react";
 import { getPackage } from "../utils/unpkg.com.js";
 import FileTree from "./FileTree/FileTree.jsx";
+import { getQueryString } from "../utils/url.js";
 
 export default class App extends React.Component {
 
@@ -21,7 +22,7 @@ export default class App extends React.Component {
 
 		this.mounted = true;
 
-		packageInfo = await getPackage(location.hash.slice(1));
+		packageInfo = await getPackage(getQueryString().p);
 
 		if (!this.mounted)
 			return;

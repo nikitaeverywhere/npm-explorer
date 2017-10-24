@@ -1,6 +1,6 @@
 {
   "name": "npm-explorer",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Web file manager for NPM",
   "main": "index.js",
   "directories": {
@@ -66,6 +66,7 @@
     "dom-loaded": "^1.0.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "js-untar": "^0.1.5",
+    "querystringify": "^1.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "webpack": "^3.8.1"
