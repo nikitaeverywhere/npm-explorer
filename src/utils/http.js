@@ -9,7 +9,7 @@ export function get (url, callback) {
 				res = JSON.parse(this.responseText);
 			} catch (e) {}
 			if (this.status === 200)
-				callback(null, res);
+				callback(null, res, this.responseURL);
 			else if (this.status === 404)
 				callback("Package not found");
 			else
