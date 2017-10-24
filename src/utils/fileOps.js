@@ -3,7 +3,19 @@ export function getIconForFile (file) {
 	if (file.type === "directory" || file.files instanceof Array)
 		return file["opened"] ? "folder-open" : "folder";
 
-	return "file";
+	const type = file["contentType"] || "";
+
+	return /javascript$|json$|jsx$/.test(type)
+			? "file-js"
+		: /css$|sass$|scss$/.test(type)
+			? "file-ml"
+		: /xml$|html$|htm$/.test(type)
+			? "file-ml"
+		: /^image/.test(type)
+			? "file-img"
+		: /^text/.test(type)
+			? "file-txt"
+		: "file";
 
 }
 

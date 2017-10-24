@@ -90,6 +90,21 @@ input {
 .icon.file {
   background-image: url(icons/file.svg); }
 
+.icon.file-js {
+  background-image: url(icons/file-js.svg); }
+
+.icon.file-ml {
+  background-image: url(icons/file-ml.svg); }
+
+.icon.file-img {
+  background-image: url(icons/file-img.svg); }
+
+.icon.file-txt {
+  background-image: url(icons/file-txt.svg); }
+
+.icon.file-css {
+  background-image: url(icons/file-css.svg); }
+
 .icon.folder {
   background-image: url(icons/folder.svg); }
 
