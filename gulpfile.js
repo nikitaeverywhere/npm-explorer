@@ -11,7 +11,8 @@ gulp.task("move files", () => gulp.src([
 	"!src/scss/**/*",
 	"!src/utils",
 	"!src/utils/**/*",
-	"!src/index.scss"
+	"!src/index.scss",
+	"!src/index.jsx"
 ]).pipe(gulp.dest(buildTo)));
 
 gulp.task("scss", () => gulp.src("src/index.scss")

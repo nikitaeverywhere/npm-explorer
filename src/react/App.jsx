@@ -1,14 +1,17 @@
 import React from "react";
-import getInfo from "../utils/packageInfo.js";
+import { getPackage } from "../utils/unpkg.com.js";
 import FileTree from "./FileTree/FileTree.jsx";
 
 export default class App extends React.Component {
 
 	state = {
 		cursor: null,
-		fileTree: [{
-			name: "loading..."
-		}]
+		data: {
+			package: {},
+			files: [{
+				path: "Loading..."
+			}]
+		}
 	};
 	mounted = false;
 
@@ -18,19 +21,24 @@ export default class App extends React.Component {
 
 		this.mounted = true;
 
-		try {
-			packageInfo = await getInfo(location.hash.slice(1));
-			console.log(packageInfo);
-		} catch (e) {
+		packageInfo = await getPackage(location.hash.slice(1));
+
+		if (!this.mounted)
+			return;
+
+		if (packageInfo.error) {
 			return this.setState({
-				fileTree: [{
-					name: e
-				}]
+				data: {
+					package: {},
+					files: [{
+						path: packageInfo.error
+					}]
+				}
 			});
 		}
 
 		this.setState({
-			fileTree: packageInfo.filesTree
+			data: packageInfo
 		});
 
 	}
@@ -44,7 +52,7 @@ export default class App extends React.Component {
 			<div style={{ textAlign: "center" }}>
 				This service is under active development right now.
 			</div>,
-			<FileTree files={ this.state.fileTree }/>
+			<FileTree files={ this.state.data.files || [] }/>
 		];
 	}
 

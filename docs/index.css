@@ -118,6 +118,6 @@ input {
       margin: 2px; }
     .file-tree > .item > .name {
       line-height: 28px;
-      padding-left: 2px; }
+      margin-left: 28px; }
     .file-tree > .item > .file-tree {
       margin-left: 28px; }
