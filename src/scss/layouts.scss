@@ -1,0 +1,38 @@
+.layout {
+
+	position: relative;
+	height: 100%;
+	width: 100%;
+
+	> .col1 {
+		height: 100%;
+		overflow: auto;
+	}
+
+	> .col2 {
+		overflow: auto;
+		height: 100%;
+	}
+
+	&.layout-desktop {
+
+		> .col1 {
+			float: left;
+			width: 300px;
+		}
+
+		> .col2 {
+			margin-left: 300px;
+		}
+
+	}
+
+	&.layout-mobile {
+
+		> .col2 {
+			display: none;
+		}
+
+	}
+
+}

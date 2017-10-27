@@ -1,6 +1,6 @@
 import { get } from "./http.js";
 
-const domain = `https://unpkg.com`;
+export const domain = `https://unpkg.com`;
 
 export async function getPackage (packageName) {
 
@@ -47,3 +47,24 @@ export async function getPackage (packageName) {
 	};
 
 }
+
+/**
+ *
+ * @param {string} packageName
+ * @param {string} filePath - For example, "/LICENSE"
+ * @return {Promise.<void>}
+ */
+export async function getFile (packageName, filePath) { return new Promise((resolve, reject) => {
+
+	const url = `${ domain }/${packageName}${ filePath }`;
+
+	get(url, "text", (err, res) => {
+
+		if (err)
+			reject(err);
+
+		resolve(res);
+
+	});
+
+})}

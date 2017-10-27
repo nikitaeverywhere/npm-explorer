@@ -111,6 +111,24 @@ input {
 .icon.folder-open {
   background-image: url(icons/folder-open.svg); }
 
+.layout {
+  position: relative;
+  height: 100%;
+  width: 100%; }
+  .layout > .col1 {
+    height: 100%;
+    overflow: auto; }
+  .layout > .col2 {
+    overflow: auto;
+    height: 100%; }
+  .layout.layout-desktop > .col1 {
+    float: left;
+    width: 300px; }
+  .layout.layout-desktop > .col2 {
+    margin-left: 300px; }
+  .layout.layout-mobile > .col2 {
+    display: none; }
+
 #welcome-form {
   padding: 10px;
   text-align: center; }
@@ -138,3 +156,7 @@ input {
         margin-left: 28px; }
     .file-tree > .item > .file-tree {
       margin-left: 28px; }
+
+.file-browser {
+  white-space: pre;
+  font-family: monospace; }

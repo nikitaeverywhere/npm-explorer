@@ -7,12 +7,15 @@ export default class FileTree extends React.Component {
 		nonce: 0
 	};
 
-	onFileClick (file) {
+	onItemClick (item) {
 
-		if (file.type !== "directory")
+		if (item.type !== "directory") {
+			if (this.props.onFileSelect)
+				this.props.onFileSelect(item);
 			return;
+		}
 
-		file.opened = !file.opened;
+		item.opened = !item.opened;
 
 		this.setState({
 			nonce: this.state.nonce + 1
@@ -22,18 +25,20 @@ export default class FileTree extends React.Component {
 
 	render () {
 
-		const files = sortFiles(this.props.files || []);
+		let { files, ...props } = this.props;
 
-		return <ul className="file-tree">{ files.map(file =>
+		files = sortFiles(files || []);
+
+		return <ul className="file-tree">{ files.map(item =>
 			<li className="item"
-			    key={ file.path }>
+			    key={ item.path }>
 				<div className="head"
-				     onClick={ () => this.onFileClick(file) }>
-					<div className={ `small icon ${ getIconForFile(file) }` }/>
-					<div className="name">{ getFileName(file) }</div>
+				     onClick={ () => this.onItemClick(item) }>
+					<div className={ `small icon ${ getIconForFile(item) }` }/>
+					<div className="name">{ getFileName(item) }</div>
 				</div>
-				{ !file.opened || !(file.files instanceof Array) ? null :
-				<FileTree files={ file.files }/>
+				{ !item.opened || !(item.files instanceof Array) ? null :
+				<FileTree files={ item.files } { ...props }/>
 				}
 			</li>
 		) }</ul>

@@ -2,6 +2,7 @@ import React from "react";
 import { getPackage } from "../utils/unpkg.com.js";
 import FileTree from "./FileTree/FileTree.jsx";
 import { getQueryString } from "../utils/url.js";
+import FileBrowser from "./FileBrowser/FileBrowser.jsx";
 
 export default class App extends React.Component {
 
@@ -12,7 +13,8 @@ export default class App extends React.Component {
 			files: [{
 				path: "Loading..."
 			}]
-		}
+		},
+		selectedFile: null
 	};
 	mounted = false;
 
@@ -49,12 +51,25 @@ export default class App extends React.Component {
 	}
 
 	render () {
-		return [
-			<div style={{ textAlign: "center" }}>
-				This service is under active development right now.
-			</div>,
-			<FileTree files={ this.state.data.files || [] }/>
-		];
+
+		const layout = window.innerWidth > window.innerHeight
+			? "desktop"
+			: "mobile";
+
+		return <div className={ `layout layout-${ layout }` }>
+			<div className="col1">
+				<FileTree files={ this.state.data.files || [] }
+				          layout={ layout }
+				          onFileSelect={ (f) => this.setState({ selectedFile: f }) }/>
+			</div>
+			<div className="col2">
+				{ !this.state.selectedFile ? null :
+				<FileBrowser package={ this.state.data.package }
+					         file={ this.state.selectedFile }/>
+				}
+			</div>
+		</div>
+
 	}
 
 }
