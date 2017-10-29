@@ -83,6 +83,7 @@ export default class App extends React.Component {
 			<div className="col2">
 				{ !this.state.selectedFile ? null :
 				<FileBrowser package={ this.state.data.package }
+				             layout={ layout }
 					         file={ this.state.selectedFile }/>
 				}
 			</div>

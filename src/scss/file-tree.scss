@@ -1,5 +1,14 @@
 @import "const";
 
+$iconMargin: 2px;
+$square: $sizeSmall + $iconMargin * 2;
+
+.layout .dir-path {
+	font-family: monospace;
+	line-height: $square;
+	margin-left: $iconMargin;
+}
+
 .file-tree {
 
 	display: block;
@@ -9,9 +18,6 @@
 	overflow: hidden;
 
 	> .item {
-
-		$iconMargin: 2px;
-		$square: $sizeSmall + $iconMargin * 2;
 
 		display: block;
 		padding: 0;
