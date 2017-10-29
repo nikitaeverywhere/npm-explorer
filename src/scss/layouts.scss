@@ -13,9 +13,15 @@ $hh: 34px;
 		padding: $dp;
 		box-sizing: border-box;
 
+		> .logo {
+			float: left;
+			height: $hh - $dp;
+		}
+
 		> .top {
 
 			white-space: pre;
+			margin-left: $hh;
 
 			> .name {
 				font-weight: bold;
@@ -28,6 +34,7 @@ $hh: 34px;
 			font-size: 12px;
 			overflow: hidden;
 			white-space: nowrap;
+			margin-left: $hh;
 
 			> .size {
 				font-weight: bold;

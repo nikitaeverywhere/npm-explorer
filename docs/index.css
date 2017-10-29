@@ -120,14 +120,19 @@ input {
     height: 34px;
     padding: 3px;
     box-sizing: border-box; }
+    .layout > .header > .logo {
+      float: left;
+      height: 31px; }
     .layout > .header > .top {
-      white-space: pre; }
+      white-space: pre;
+      margin-left: 34px; }
       .layout > .header > .top > .name {
         font-weight: bold; }
     .layout > .header > .body {
       font-size: 12px;
       overflow: hidden;
-      white-space: nowrap; }
+      white-space: nowrap;
+      margin-left: 34px; }
       .layout > .header > .body > .size {
         font-weight: bold; }
       .layout > .header > .body > .desc {
@@ -177,6 +182,10 @@ input {
 #welcome-form {
   padding: 10px;
   text-align: center; }
+  #welcome-form img {
+    display: inline-block;
+    height: 36px;
+    vertical-align: baseline; }
 
 .layout .dir-path {
   font-family: monospace;

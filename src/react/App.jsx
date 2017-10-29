@@ -72,6 +72,7 @@ export default class App extends React.Component {
 		}
 
 		packageInfo = await getPackage(packageName);
+		document.title = `NPM Explorer: ${ packageName }`;
 
 		if (!this.mounted)
 			return;
@@ -123,6 +124,7 @@ export default class App extends React.Component {
 				`layout layout-${ layout } ${ this.state.selectedFile ? "file-selected" : "" }`
 			}>
 			<div className="header">
+				<img className="logo" src="img/favicon.png"/>
 				<div className="top">
 					<span className="name">{ this.state.data.package.name || "Loading..." }</span>
 					&nbsp;

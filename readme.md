@@ -19,7 +19,7 @@ Preview
 
 Import files from [Lodash](https://lodash.com) carefully!
 
-![2017-10-29_215731](https://user-images.githubusercontent.com/4989256/32147769-259653d2-bcf5-11e7-9e55-52e6042c419c.png)
+![2017-10-29](https://user-images.githubusercontent.com/4989256/32148242-9ef3f002-bcfc-11e7-97b5-d197a13fec5a.png)
 
 Development
 -----------
