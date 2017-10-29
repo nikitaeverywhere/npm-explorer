@@ -113,6 +113,21 @@ export default class App extends React.Component {
 		});
 	}
 
+	onFileSelect (file) {
+
+		if (file === this.state.selectedFile)
+			return;
+
+		window.history.replaceState({}, document.title, `?p=${ this.state.data.package.name }${
+			file 
+				? file.path || ""
+				: ""
+		}`);
+
+		this.setState({ selectedFile: file });
+
+	}
+
 	render () {
 
 		const layout = window.innerWidth > window.innerHeight
@@ -147,11 +162,11 @@ export default class App extends React.Component {
 				          layout={ layout }
 				          data={ this.state.data }
 				          selectedFile={ this.state.selectedFile }
-				          onFileSelect={ (f) => this.setState({ selectedFile: f }) }/>
+				          onFileSelect={ (f) => this.onFileSelect(f) }/>
 			</div>
 			<div className="col2">
 				<div className="close-button"
-				     onClick={ () => this.setState({ selectedFile: null }) }/>
+				     onClick={ () => this.onFileSelect(null) }/>
 				{ this.state.selectedFile ? <div className="file-name">{
 					getFileName(this.state.selectedFile)
 				}</div> : null }
