@@ -120,8 +120,10 @@ input {
     height: 34px;
     padding: 3px;
     box-sizing: border-box; }
-    .layout > .header > .top > .name {
-      font-weight: bold; }
+    .layout > .header > .top {
+      white-space: pre; }
+      .layout > .header > .top > .name {
+        font-weight: bold; }
     .layout > .header > .body {
       font-size: 12px;
       overflow: hidden;
