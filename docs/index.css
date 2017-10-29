@@ -119,8 +119,21 @@ input {
     height: 100%;
     overflow: auto; }
   .layout > .col2 {
+    position: relative;
     overflow: auto;
     height: 100%; }
+    .layout > .col2 > .close-button {
+      display: none;
+      z-index: 999;
+      text-align: right;
+      padding: 3px;
+      font-weight: bold;
+      text-decoration: underline;
+      right: 5px;
+      top: 5px;
+      cursor: pointer; }
+      .layout > .col2 > .close-button:before {
+        content: "Close"; }
   .layout.layout-desktop > .col1 {
     float: left;
     width: 300px; }
@@ -128,6 +141,12 @@ input {
     margin-left: 300px; }
   .layout.layout-mobile > .col2 {
     display: none; }
+  .layout.layout-mobile.file-selected > .col1 {
+    display: none; }
+  .layout.layout-mobile.file-selected > .col2 {
+    display: block; }
+    .layout.layout-mobile.file-selected > .col2 > .close-button {
+      display: block; }
 
 #welcome-form {
   padding: 10px;

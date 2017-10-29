@@ -74,13 +74,17 @@ export default class App extends React.Component {
 			? "desktop"
 			: "mobile";
 
-		return <div className={ `layout layout-${ layout }` }>
+		return <div className={
+				`layout layout-${ layout } ${ this.state.selectedFile ? "file-selected" : "" }`
+			}>
 			<div className="col1">
 				<FileTree files={ this.state.data.files || [] }
 				          layout={ layout }
 				          onFileSelect={ (f) => this.setState({ selectedFile: f }) }/>
 			</div>
 			<div className="col2">
+				<div className="close-button"
+				     onClick={ () => this.setState({ selectedFile: null }) }/>
 				{ !this.state.selectedFile ? null :
 				<FileBrowser package={ this.state.data.package }
 				             layout={ layout }
