@@ -14,15 +14,23 @@ export default class App extends React.Component {
 				path: "Loading..."
 			}]
 		},
-		selectedFile: null
+		selectedFile: null,
+		nonce: 0
 	};
 	mounted = false;
+	windowSizeChangeListener = null;
 
 	async componentDidMount () {
 
 		let packageInfo;
 
 		this.mounted = true;
+
+		if (!this.windowSizeChangeListener)
+			window.addEventListener(
+				"resize",
+				this.windowSizeChangeListener = () => this.onWindowSizeChange()
+			);
 
 		packageInfo = await getPackage(getQueryString().p);
 
@@ -48,6 +56,16 @@ export default class App extends React.Component {
 
 	componentWillUnmount () {
 		this.mounted = false;
+		if (this.windowSizeChangeListener) {
+			window.removeEventListener("resize", this.windowSizeChangeListener);
+			this.windowSizeChangeListener = null;
+		}
+	}
+
+	onWindowSizeChange () {
+		this.setState({
+			nonce: this.state.nonce + 1
+		});
 	}
 
 	render () {
