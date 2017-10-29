@@ -5,6 +5,26 @@ import { getQueryString } from "../utils/url.js";
 import FileBrowser from "./FileBrowser/FileBrowser.jsx";
 import { getFileName } from "../utils/fileOps.js";
 
+const getAuthorElement = (packageAuthor) => {
+
+	if (!packageAuthor)
+		return "";
+
+	if (typeof packageAuthor === "string")
+		return packageAuthor;
+
+	if (packageAuthor.name)
+		return packageAuthor.url || packageAuthor.email
+			? <a href={ packageAuthor.url || packageAuthor.email }>{ packageAuthor.name }</a>
+			: packageAuthor.name;
+
+	if (packageAuthor instanceof Array)
+		return "multiple authors";
+
+	return "";
+
+};
+
 export default class App extends React.Component {
 
 	state = {
@@ -74,10 +94,20 @@ export default class App extends React.Component {
 		const layout = window.innerWidth > window.innerHeight
 			? "desktop"
 			: "mobile";
+		const author = getAuthorElement(this.state.data.package.author);
 
 		return <div className={
 				`layout layout-${ layout } ${ this.state.selectedFile ? "file-selected" : "" }`
 			}>
+			<div className="header">
+				<div className="top">
+					<span className="name">{ this.state.data.package.name || "Loading..." }</span>
+					&nbsp;
+					<span className="author">
+						{ author ? `by ${ author }` : "" }
+					</span>
+				</div>
+			</div>
 			<div className="col1">
 				<FileTree files={ this.state.data.files || [] }
 				          layout={ layout }

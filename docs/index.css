@@ -6,7 +6,8 @@ html, body, #root {
   box-sizing: border-box;
   color: #555;
   font-size: 16px;
-  font-family: sans-serif; }
+  font-family: sans-serif;
+  overflow: hidden; }
 
 .central {
   display: table;
@@ -115,13 +116,22 @@ input {
   position: relative;
   height: 100%;
   width: 100%; }
-  .layout > .col1 {
+  .layout > .header {
+    height: 30px; }
+    .layout > .header > .top {
+      padding: 3px; }
+      .layout > .header > .top > .name {
+        font-weight: bold; }
+  .layout > .col1, .layout > .col2 {
     height: 100%;
+    height: calc(100% - 30px); }
+  .layout > .col1 {
     overflow: auto; }
   .layout > .col2 {
     position: relative;
     overflow: auto;
-    height: 100%; }
+    padding: 3px;
+    box-sizing: border-box; }
     .layout > .col2 > .close-button {
       display: none;
       float: right;
@@ -137,7 +147,7 @@ input {
         content: "Close"; }
     .layout > .col2 > .file-name {
       font-weight: bold;
-      padding: 3px; }
+      padding: 3px 3px 3px 0; }
   .layout.layout-desktop > .col1 {
     float: left;
     width: 300px; }

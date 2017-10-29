@@ -1,4 +1,5 @@
 $dp: 3px;
+$hh: 30px;
 
 .layout {
 
@@ -6,8 +7,28 @@ $dp: 3px;
 	height: 100%;
 	width: 100%;
 
-	> .col1 {
+	> .header {
+
+		height: $hh;
+
+		> .top {
+
+			padding: $dp;
+
+			> .name {
+				font-weight: bold;
+			}
+
+		}
+
+	}
+
+	> .col1, > .col2 {
 		height: 100%;
+		height: calc(100% - #{ $hh });
+	}
+
+	> .col1 {
 		overflow: auto;
 	}
 
@@ -15,7 +36,8 @@ $dp: 3px;
 
 		position: relative;
 		overflow: auto;
-		height: 100%;
+		padding: $dp;
+		box-sizing: border-box;
 
 		> .close-button {
 			display: none;
@@ -35,7 +57,7 @@ $dp: 3px;
 
 		> .file-name {
 			font-weight: bold;
-			padding: $dp;
+			padding: $dp $dp $dp 0;
 		}
 
 	}
