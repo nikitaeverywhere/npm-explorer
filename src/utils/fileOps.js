@@ -37,7 +37,7 @@ export function sortFiles (files) {
 			return -1;
 		if (b.files && !a.files)
 			return 1;
-		return a.path > b.path ? 1 : a.path < b.path ? -1 : 0
+		return a.path.localeCompare(b.path);
 	});
 
 	return files;
