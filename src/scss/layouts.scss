@@ -68,12 +68,16 @@ $hh: 34px;
 
 	> .col1 {
 		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+		overflow-scrolling: touch;
 	}
 
 	> .col2 {
 
 		position: relative;
 		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+		overflow-scrolling: touch;
 		padding: $dp;
 		box-sizing: border-box;
 

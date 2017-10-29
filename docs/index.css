@@ -150,10 +150,14 @@ input {
     height: 100%;
     height: calc(100% - 34px); }
   .layout > .col1 {
-    overflow: auto; }
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch; }
   .layout > .col2 {
     position: relative;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
     padding: 3px;
     box-sizing: border-box; }
     .layout > .col2 > .close-button {
