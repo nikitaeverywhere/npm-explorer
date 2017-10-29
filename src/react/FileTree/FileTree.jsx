@@ -1,6 +1,6 @@
 import React from "react";
 import { getIconForFile, getFileName, sortFiles } from "../../utils/fileOps.js";
-import { getReadableSize } from "../../utils/etc.js";
+import { getReadableSize, colorCodeItem } from "../../utils/etc.js";
 
 export default class FileTree extends React.Component {
 
@@ -68,7 +68,10 @@ export default class FileTree extends React.Component {
 				<div className="head"
 				     onClick={ () => this.onItemClick(item) }>
 					<div className={ `small icon ${ getIconForFile(item) }` }/>
-					<div className="size">{ item.size ? getReadableSize(item.size) : "" }</div>
+					<div className="size"
+					     style={ { color: colorCodeItem(item, this.props.data) } }>
+						{ item.size ? getReadableSize(item.size) : "" }
+					</div>
 					<div className="name">{ item.name || getFileName(item) }</div>
 				</div>
 				{ !item.opened || !(item.files instanceof Array) || this.props.layout === "mobile"

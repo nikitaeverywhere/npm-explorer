@@ -13,3 +13,20 @@ export const getReadableSize = (size) => {
 	}`;
 
 };
+
+export const colorCodeItem = (item = {}, { totalSize, totalFiles /*, totalDirs */ } = {}) => {
+
+	let pct,
+		size = item.size;
+
+	if (item.type === "directory") {
+		size = item.files && item.files.length
+			? item.files.map(f => f.size || 0).reduce((a, b) => Math.max(a, b))
+			: item.size;
+	}
+
+	pct = Math.min(Math.pow(size / ( totalSize / totalFiles ), 0.2), 2) / 2;
+
+	return `rgb(${ Math.round(255 * pct) },${ Math.round((255 * (100 - pct * 100)) / 100) },0)`;
+
+};
