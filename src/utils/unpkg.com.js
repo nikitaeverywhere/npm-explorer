@@ -5,21 +5,29 @@ export const domain = `https://unpkg.com`;
 /**
  * Corrects sizes of directories and returns total size of a package.
  * @param item
+ * @returns {number[]}
  */
 const indexPackageSize = (item) => {
 
-	let size = 0;
+	let size = 0,
+	    files = 0,
+	    dirs = 0;
 
 	if (item.type === "directory") {
-		if (item.files instanceof Array)
-			for (let file of item.files)
-				size += indexPackageSize(file);
+		if (item.files instanceof Array) {
+			for (let file of item.files) {
+				const [s, f, d] = indexPackageSize(file);
+				size += s;
+				files += f;
+				dirs += d;
+			}
+		}
 		item.size = size;
 	} else {
-		return item.size;
+		return [ item.size, 1, 0 ];
 	}
 
-	return size;
+	return [ size, files, 1 ];
 
 };
 
@@ -62,10 +70,14 @@ export async function getPackage (packageName) {
 		};
 	}
 
+	const stats = indexPackageSize(meta);
+
 	return {
 		package: pkg || { name: "?" },
 		files: meta ? (meta.files || []) : [],
-		totalSize: indexPackageSize(meta)
+		totalSize: stats[0],
+		totalFiles: stats[1],
+		totalDirs: stats[2]
 	};
 
 }

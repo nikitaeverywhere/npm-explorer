@@ -35,7 +35,9 @@ export default class App extends React.Component {
 			files: [{
 				path: "Loading..."
 			}],
-			totalSize: 0
+			totalSize: 0,
+			totalFiles: 0,
+			totalDirs: 0
 		},
 		selectedFile: null,
 		nonce: 0
@@ -62,12 +64,12 @@ export default class App extends React.Component {
 
 		if (packageInfo.error) {
 			return this.setState({
-				data: {
+				data: Object.assign({}, this.state.data, {
 					package: {},
 					files: [{
 						path: packageInfo.error
 					}]
-				}
+				})
 			});
 		}
 
@@ -122,6 +124,7 @@ export default class App extends React.Component {
 			<div className="col1">
 				<FileTree files={ this.state.data.files || [] }
 				          layout={ layout }
+				          data={ this.state.data }
 				          onFileSelect={ (f) => this.setState({ selectedFile: f }) }/>
 			</div>
 			<div className="col2">

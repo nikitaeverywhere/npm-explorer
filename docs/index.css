@@ -194,6 +194,7 @@ input {
     .file-tree > .item > .head {
       cursor: pointer;
       overflow: hidden;
+      white-space: pre;
       -webkit-transition: all 0.3s ease;
       -moz-transition: all 0.3s ease;
       -ms-transition: all 0.3s ease;
@@ -204,11 +205,18 @@ input {
         height: 24px;
         float: left;
         margin: 2px; }
+      .file-tree > .item > .head > .size {
+        float: right;
+        line-height: 28px;
+        font-size: 12px;
+        padding-right: 3px; }
       .file-tree > .item > .head > .name {
         line-height: 28px;
-        margin-left: 28px; }
+        margin-left: 28px;
+        margin-right: 55px; }
       .file-tree > .item > .head:hover {
-        margin-left: 5px; }
+        padding-left: 5px;
+        padding-right: 5px; }
     .file-tree > .item > .file-tree {
       margin-left: 28px; }
 

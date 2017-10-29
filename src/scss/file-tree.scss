@@ -27,6 +27,7 @@ $square: $sizeSmall + $iconMargin * 2;
 
 			cursor: pointer;
 			overflow: hidden;
+			white-space: pre;
 			@include transition($defaultTransition);
 
 			> .icon {
@@ -38,15 +39,26 @@ $square: $sizeSmall + $iconMargin * 2;
 
 			}
 
+			> .size {
+
+				float: right;
+				line-height: $square;
+				font-size: 12px;
+				padding-right: 3px;
+
+			}
+
 			> .name {
 
 				line-height: $square;
 				margin-left: $square;
+				margin-right: 55px;
 
 			}
 
 			&:hover {
-				margin-left: 5px;
+				padding-left: 5px;
+				padding-right: 5px;
 			}
 
 		}
