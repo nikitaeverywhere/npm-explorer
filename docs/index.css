@@ -200,6 +200,9 @@ input {
       -ms-transition: all 0.3s ease;
       -o-transition: all 0.3s ease;
       transition: all 0.3s ease; }
+      .file-tree > .item > .head.selected {
+        font-weight: bold;
+        text-decoration: underline; }
       .file-tree > .item > .head > .icon {
         width: 24px;
         height: 24px;

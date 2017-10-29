@@ -65,7 +65,7 @@ export default class FileTree extends React.Component {
 		return <ul className="file-tree">{ files.map(item =>
 			<li className="item"
 			    key={ item.path }>
-				<div className="head"
+				<div className={ `head ${ item === this.props.selectedFile ? "selected" : "" }` }
 				     onClick={ () => this.onItemClick(item) }>
 					<div className={ `small icon ${ getIconForFile(item) }` }/>
 					<div className="size"

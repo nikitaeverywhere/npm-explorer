@@ -30,6 +30,11 @@ $square: $sizeSmall + $iconMargin * 2;
 			white-space: pre;
 			@include transition($defaultTransition);
 
+			&.selected {
+				font-weight: bold;
+				text-decoration: underline;
+			}
+
 			> .icon {
 
 				width: $sizeSmall;

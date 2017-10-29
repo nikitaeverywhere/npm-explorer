@@ -125,6 +125,7 @@ export default class App extends React.Component {
 				<FileTree files={ this.state.data.files || [] }
 				          layout={ layout }
 				          data={ this.state.data }
+				          selectedFile={ this.state.selectedFile }
 				          onFileSelect={ (f) => this.setState({ selectedFile: f }) }/>
 			</div>
 			<div className="col2">
