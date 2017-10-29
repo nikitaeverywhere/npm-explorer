@@ -3,6 +3,7 @@ import { getPackage } from "../utils/unpkg.com.js";
 import FileTree from "./FileTree/FileTree.jsx";
 import { getQueryString } from "../utils/url.js";
 import FileBrowser from "./FileBrowser/FileBrowser.jsx";
+import { getFileName } from "../utils/fileOps.js";
 
 export default class App extends React.Component {
 
@@ -85,6 +86,9 @@ export default class App extends React.Component {
 			<div className="col2">
 				<div className="close-button"
 				     onClick={ () => this.setState({ selectedFile: null }) }/>
+				{ this.state.selectedFile ? <div className="file-name">{
+					getFileName(this.state.selectedFile)
+				}</div> : null }
 				{ !this.state.selectedFile ? null :
 				<FileBrowser package={ this.state.data.package }
 				             layout={ layout }

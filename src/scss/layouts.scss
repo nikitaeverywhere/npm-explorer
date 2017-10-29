@@ -1,3 +1,5 @@
+$dp: 3px;
+
 .layout {
 
 	position: relative;
@@ -20,7 +22,7 @@
 			float: right;
 			z-index: 999;
 			text-align: right;
-			padding: 3px;
+			padding: $dp;
 			font-weight: bold;
 			text-decoration: underline;
 			right: 5px;
@@ -29,6 +31,11 @@
 			&:before {
 				content: "Close";
 			}
+		}
+
+		> .file-name {
+			font-weight: bold;
+			padding: $dp;
 		}
 
 	}
