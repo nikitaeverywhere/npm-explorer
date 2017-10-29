@@ -195,3 +195,5 @@ input {
 .file-browser {
   white-space: pre;
   font-family: monospace; }
+  .file-browser .image {
+    max-width: 100%; }

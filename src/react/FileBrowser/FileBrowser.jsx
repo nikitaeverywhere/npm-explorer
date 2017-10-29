@@ -1,5 +1,5 @@
 import React from "react";
-import { getFile } from "../../utils/unpkg.com.js";
+import { domain, getFile } from "../../utils/unpkg.com.js";
 
 export default class FileBrowser extends React.Component {
 
@@ -15,6 +15,9 @@ export default class FileBrowser extends React.Component {
 
 		if (!file || !this.props.package)
 			return null;
+
+		if (file.contentType && file.contentType.indexOf("image") === 0)
+			return this.getImageElement(file);
 
 		getFile(this.props.package.name, file.path).then((text) => {
 			this.contents.set(file.path, text);
@@ -32,6 +35,12 @@ export default class FileBrowser extends React.Component {
 
 		return null;
 
+	}
+
+	getImageElement (file) {
+		return <img className="image"
+		            src={ domain + "/" + this.props.package.name + "/" + file.path }
+		            alt="image"/>
 	}
 
 	render () {
