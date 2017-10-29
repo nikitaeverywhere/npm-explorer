@@ -2,6 +2,27 @@ import { get } from "./http.js";
 
 export const domain = `https://unpkg.com`;
 
+/**
+ * Corrects sizes of directories and returns total size of a package.
+ * @param item
+ */
+const indexPackageSize = (item) => {
+
+	let size = 0;
+
+	if (item.type === "directory") {
+		if (item.files instanceof Array)
+			for (let file of item.files)
+				size += indexPackageSize(file);
+		item.size = size;
+	} else {
+		return item.size;
+	}
+
+	return size;
+
+};
+
 export async function getPackage (packageName) {
 
 	const filesUrl = `${ domain }/${packageName}/?meta`;
@@ -43,7 +64,8 @@ export async function getPackage (packageName) {
 
 	return {
 		package: pkg || { name: "?" },
-		files: meta ? (meta.files || []) : []
+		files: meta ? (meta.files || []) : [],
+		totalSize: indexPackageSize(meta)
 	};
 
 }

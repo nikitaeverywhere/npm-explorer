@@ -4,6 +4,7 @@ import FileTree from "./FileTree/FileTree.jsx";
 import { getQueryString } from "../utils/url.js";
 import FileBrowser from "./FileBrowser/FileBrowser.jsx";
 import { getFileName } from "../utils/fileOps.js";
+import { getReadableSize } from "../utils/etc.js";
 
 const getAuthorElement = (packageAuthor) => {
 
@@ -33,7 +34,8 @@ export default class App extends React.Component {
 			package: {},
 			files: [{
 				path: "Loading..."
-			}]
+			}],
+			totalSize: 0
 		},
 		selectedFile: null,
 		nonce: 0
@@ -105,6 +107,15 @@ export default class App extends React.Component {
 					&nbsp;
 					<span className="author">
 						{ author ? `by ${ author }` : "" }
+					</span>
+				</div>
+				<div className="body">
+					<span className="size">
+						{ getReadableSize(this.state.data.totalSize) } in total.
+					</span>
+					&nbsp;
+					<span className="desc">
+						{ this.state.data.package.description || "" }
 					</span>
 				</div>
 			</div>

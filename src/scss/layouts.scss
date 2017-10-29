@@ -1,5 +1,5 @@
 $dp: 3px;
-$hh: 30px;
+$hh: 34px;
 
 .layout {
 
@@ -10,13 +10,31 @@ $hh: 30px;
 	> .header {
 
 		height: $hh;
+		padding: $dp;
+		box-sizing: border-box;
 
 		> .top {
 
-			padding: $dp;
-
 			> .name {
 				font-weight: bold;
+			}
+
+		}
+
+		> .body {
+
+			font-size: 12px;
+			overflow: hidden;
+			white-space: nowrap;
+
+			> .size {
+				font-weight: bold;
+			}
+
+			> .desc {
+				color: #777;
+				overflow: hidden;
+				text-overflow: ellipsis;
 			}
 
 		}

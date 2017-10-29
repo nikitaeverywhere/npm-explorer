@@ -117,14 +117,24 @@ input {
   height: 100%;
   width: 100%; }
   .layout > .header {
-    height: 30px; }
-    .layout > .header > .top {
-      padding: 3px; }
-      .layout > .header > .top > .name {
+    height: 34px;
+    padding: 3px;
+    box-sizing: border-box; }
+    .layout > .header > .top > .name {
+      font-weight: bold; }
+    .layout > .header > .body {
+      font-size: 12px;
+      overflow: hidden;
+      white-space: nowrap; }
+      .layout > .header > .body > .size {
         font-weight: bold; }
+      .layout > .header > .body > .desc {
+        color: #777;
+        overflow: hidden;
+        text-overflow: ellipsis; }
   .layout > .col1, .layout > .col2 {
     height: 100%;
-    height: calc(100% - 30px); }
+    height: calc(100% - 34px); }
   .layout > .col1 {
     overflow: auto; }
   .layout > .col2 {
