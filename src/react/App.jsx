@@ -139,7 +139,11 @@ export default class App extends React.Component {
 				`layout layout-${ layout } ${ this.state.selectedFile ? "file-selected" : "" }`
 			}>
 			<div className="header">
-				<img className="logo" src="img/favicon.png"/>
+				<a href="https://github.com/ZitRos/npm-explorer/blob/master/readme.md"
+				   target="_blank"
+				   className="logo-container">
+					<img className="logo" src="img/favicon.png"/>
+				</a>
 				<div className="top">
 					<span className="name">{ this.state.data.package.name || "Loading..." }</span>
 					&nbsp;

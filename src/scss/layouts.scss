@@ -13,9 +13,20 @@ $hh: 34px;
 		padding: $dp;
 		box-sizing: border-box;
 
-		> .logo {
+		> .logo-container {
+
+			display: inline-block;
 			float: left;
+			text-decoration: none;
+			border: none;
+			outline: none;
+			cursor: pointer;
 			height: $hh - $dp;
+
+			> .logo {
+				height: $hh - $dp;
+			}
+
 		}
 
 		> .top {

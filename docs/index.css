@@ -120,9 +120,16 @@ input {
     height: 34px;
     padding: 3px;
     box-sizing: border-box; }
-    .layout > .header > .logo {
+    .layout > .header > .logo-container {
+      display: inline-block;
       float: left;
+      text-decoration: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
       height: 31px; }
+      .layout > .header > .logo-container > .logo {
+        height: 31px; }
     .layout > .header > .top {
       white-space: pre;
       margin-left: 34px; }
@@ -186,6 +193,16 @@ input {
     display: inline-block;
     height: 36px;
     vertical-align: baseline; }
+
+#root > .author {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 11px;
+  color: #777;
+  padding: 1px;
+  text-align: center; }
 
 .layout .dir-path {
   font-family: monospace;

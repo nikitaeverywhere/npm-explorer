@@ -10,3 +10,14 @@
 	}
 
 }
+
+#root > .author {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	font-size: 11px;
+	color: #777;
+	padding: 1px;
+	text-align: center;
+}
