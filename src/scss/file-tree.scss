@@ -21,6 +21,7 @@
 
 			cursor: pointer;
 			overflow: hidden;
+			@include transition($defaultTransition);
 
 			> .icon {
 
@@ -36,6 +37,10 @@
 				line-height: $square;
 				margin-left: $square;
 
+			}
+
+			&:hover {
+				margin-left: 5px;
 			}
 
 		}

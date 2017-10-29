@@ -145,7 +145,12 @@ input {
     margin: 0; }
     .file-tree > .item > .head {
       cursor: pointer;
-      overflow: hidden; }
+      overflow: hidden;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
       .file-tree > .item > .head > .icon {
         width: 24px;
         height: 24px;
@@ -154,6 +159,8 @@ input {
       .file-tree > .item > .head > .name {
         line-height: 28px;
         margin-left: 28px; }
+      .file-tree > .item > .head:hover {
+        margin-left: 5px; }
     .file-tree > .item > .file-tree {
       margin-left: 28px; }
 
