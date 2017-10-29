@@ -43,3 +43,25 @@ export function sortFiles (files) {
 	return files;
 
 }
+
+/**
+ * @param {*[]} files
+ * @param {string} path
+ */
+export function openTreeToFile (files, path) {
+
+	for (let file of (files || [])) {
+		if ((path).indexOf(file.path) === 0) {
+			if (file.type === "directory") {
+				file.opened = true;
+				return openTreeToFile(file.files, path);
+			} else if (path.length !== file.path.length) {
+				return null;
+			}
+			return file;
+		}
+	}
+
+	return null;
+
+}

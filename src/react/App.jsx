@@ -3,7 +3,7 @@ import { getPackage } from "../utils/unpkg.com.js";
 import FileTree from "./FileTree/FileTree.jsx";
 import { getQueryString } from "../utils/url.js";
 import FileBrowser from "./FileBrowser/FileBrowser.jsx";
-import { getFileName } from "../utils/fileOps.js";
+import { getFileName, openTreeToFile } from "../utils/fileOps.js";
 import { getReadableSize } from "../utils/etc.js";
 
 const getAuthorElement = (packageAuthor) => {
@@ -47,7 +47,10 @@ export default class App extends React.Component {
 
 	async componentDidMount () {
 
-		let packageInfo;
+		let packageInfo,
+		    packageName = getQueryString().p || "",
+		    path = [];
+		const scoped = packageName[0] === "@";
 
 		this.mounted = true;
 
@@ -57,7 +60,18 @@ export default class App extends React.Component {
 				this.windowSizeChangeListener = () => this.onWindowSizeChange()
 			);
 
-		packageInfo = await getPackage(getQueryString().p);
+		const slashes = (packageName.match(/\//g) || []).length;
+		if (scoped && slashes > 1) {
+			const arr = packageName.split(/\//g);
+			packageName = arr.slice(0, 2).join("/");
+			path = "/" + arr.slice(2).join("/");
+		} else if (!scoped && slashes > 0) {
+			const arr = packageName.split(/\//g);
+			packageName = arr.slice(0, 1).join("/");
+			path = "/" + arr.slice(1).join("/");
+		}
+
+		packageInfo = await getPackage(packageName);
 
 		if (!this.mounted)
 			return;
@@ -73,8 +87,13 @@ export default class App extends React.Component {
 			});
 		}
 
+		const selectedFile = path.length > 0
+			? openTreeToFile(packageInfo.files || [], path)
+			: null;
+
 		this.setState({
-			data: packageInfo
+			data: packageInfo,
+			selectedFile: selectedFile
 		});
 
 	}

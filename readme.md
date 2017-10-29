@@ -8,10 +8,10 @@ publish a lot of unnecessary files to NPM (like CI configs, tests, build tools o
 This service helps to see what files does NPM package include along with some other metrics regarding
 to the package quality.
 
-You can easily hotlink packages, for example:
+You can easily hotlink packages and individual files, for example:
 
 ```txt
-https://zitros.github.io/npm-explorer/?p=lodash
+https://zitros.github.io/npm-explorer/?p=lodash/LICENSE
 ```
 
 Preview
