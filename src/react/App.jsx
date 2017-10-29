@@ -169,11 +169,13 @@ export default class App extends React.Component {
 				          onFileSelect={ (f) => this.onFileSelect(f) }/>
 			</div>
 			<div className="col2">
-				<div className="close-button"
-				     onClick={ () => this.onFileSelect(null) }/>
-				{ this.state.selectedFile ? <div className="file-name">{
-					getFileName(this.state.selectedFile)
-				}</div> : null }
+				<div className="head">
+					<div className="close-button"
+					     onClick={ () => this.onFileSelect(null) }/>
+					{ this.state.selectedFile ? <div className="file-name">{
+						getFileName(this.state.selectedFile)
+					}</div> : null }
+				</div>
 				{ !this.state.selectedFile ? null :
 				<FileBrowser package={ this.state.data.package }
 				             layout={ layout }

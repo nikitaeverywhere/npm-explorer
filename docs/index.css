@@ -155,27 +155,34 @@ input {
     overflow-scrolling: touch; }
   .layout > .col2 {
     position: relative;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    overflow-scrolling: touch;
-    padding: 3px;
+    overflow: hidden;
     box-sizing: border-box; }
-    .layout > .col2 > .close-button {
-      display: none;
-      float: right;
-      z-index: 999;
-      text-align: right;
+    .layout > .col2 > .file-browser {
+      height: calc(100% - 24px);
       padding: 3px;
-      font-weight: bold;
-      text-decoration: underline;
-      right: 5px;
-      top: 5px;
-      cursor: pointer; }
-      .layout > .col2 > .close-button:before {
-        content: "Close"; }
-    .layout > .col2 > .file-name {
-      font-weight: bold;
-      padding: 3px 3px 3px 0; }
+      box-sizing: border-box; }
+    .layout > .col2 > .head {
+      padding-left: 3px;
+      box-sizing: border-box;
+      height: 24px;
+      overflow: hidden;
+      position: relative; }
+      .layout > .col2 > .head > .close-button {
+        display: none;
+        float: right;
+        z-index: 999;
+        text-align: right;
+        padding: 3px;
+        font-weight: bold;
+        text-decoration: underline;
+        right: 5px;
+        top: 5px;
+        cursor: pointer; }
+        .layout > .col2 > .head > .close-button:before {
+          content: "Close"; }
+      .layout > .col2 > .head > .file-name {
+        font-weight: bold;
+        padding: 3px 3px 3px 0; }
   .layout.layout-desktop > .col1 {
     float: left;
     width: 300px; }
@@ -187,7 +194,7 @@ input {
     display: none; }
   .layout.layout-mobile.file-selected > .col2 {
     display: block; }
-    .layout.layout-mobile.file-selected > .col2 > .close-button {
+    .layout.layout-mobile.file-selected > .col2 > .head > .close-button {
       display: block; }
 
 #welcome-form {
@@ -257,6 +264,9 @@ input {
 
 .file-browser {
   white-space: pre;
-  font-family: monospace; }
+  font-family: monospace;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch; }
   .file-browser .image {
     max-width: 100%; }

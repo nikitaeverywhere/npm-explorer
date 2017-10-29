@@ -75,31 +75,46 @@ $hh: 34px;
 	> .col2 {
 
 		position: relative;
-		overflow: auto;
-		-webkit-overflow-scrolling: touch;
-		overflow-scrolling: touch;
-		padding: $dp;
+		overflow: hidden;
 		box-sizing: border-box;
 
-		> .close-button {
-			display: none;
-			float: right;
-			z-index: 999;
-			text-align: right;
+		$h: 24px;
+
+		> .file-browser {
+			height: calc(100% - #{$h});
 			padding: $dp;
-			font-weight: bold;
-			text-decoration: underline;
-			right: 5px;
-			top: 5px;
-			cursor: pointer;
-			&:before {
-				content: "Close";
-			}
+			box-sizing: border-box;
 		}
 
-		> .file-name {
-			font-weight: bold;
-			padding: $dp $dp $dp 0;
+		> .head {
+
+			padding-left: $dp;
+			box-sizing: border-box;
+			height: $h;
+			overflow: hidden;
+			position: relative;
+
+			> .close-button {
+				display: none;
+				float: right;
+				z-index: 999;
+				text-align: right;
+				padding: $dp;
+				font-weight: bold;
+				text-decoration: underline;
+				right: 5px;
+				top: 5px;
+				cursor: pointer;
+				&:before {
+					content: "Close";
+				}
+			}
+
+			> .file-name {
+				font-weight: bold;
+				padding: $dp $dp $dp 0;
+			}
+
 		}
 
 	}
@@ -133,7 +148,7 @@ $hh: 34px;
 
 				display: block;
 
-				> .close-button {
+				> .head > .close-button {
 					display: block;
 				}
 
