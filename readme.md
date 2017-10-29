@@ -1,4 +1,4 @@
-# [npm-explorer](https://zitros.github.io/npm-explorer)
+# [NPM Explorer](https://zitros.github.io/npm-explorer)
 
 Online file explorer for [NPM](https://www.npmjs.com/).
 Visit [zitros.github.io/npm-explorer](https://zitros.github.io/npm-explorer).
