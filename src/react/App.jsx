@@ -16,7 +16,16 @@ const getAuthorElement = (packageAuthor) => {
 
 	if (packageAuthor.name)
 		return packageAuthor.url || packageAuthor.email
-			? <a href={ packageAuthor.url || packageAuthor.email }>{ packageAuthor.name }</a>
+			? <a href={
+			     	packageAuthor.url
+			     		? packageAuthor.url.indexOf("http") === 0
+			     			? packageAuthor.url
+			     			: `http://${ packageAuthor.url }`
+			     		: `mailto:${ packageAuthor.email }`
+			     }
+			     target="_blank">
+				{ packageAuthor.name }
+			</a>
 			: packageAuthor.name;
 
 	if (packageAuthor instanceof Array)
@@ -148,7 +157,7 @@ export default class App extends React.Component {
 					<span className="name">{ this.state.data.package.name || "Loading..." }</span>
 					&nbsp;
 					<span className="author">
-						{ author ? `by ${ author }` : "" }
+						{ author ? <span>by { author }</span> : null }
 					</span>
 				</div>
 				<div className="body">
