@@ -30,3 +30,29 @@ export const colorCodeItem = (item = {}, { totalSize, totalFiles /*, totalDirs *
 	return `rgb(${ Math.round(255 * pct) },${ Math.round((255 * (100 - pct * 100)) / 100) },0)`;
 
 };
+
+const blacklisted = [
+	"/node_modules",
+	"/.jshintrc",
+	"/.eslintrc",
+	"/eslint.json",
+	"/.babelrc",
+	"/.lint",
+	"/.lvimrc",
+	"/.travis.yml",
+	"/.jenkins.yml",
+	"/test",
+	"/.npmignore",
+	"/karma.conf.js",
+	"/gulpfile.js",
+	"/gulpfile.babel.js",
+	"/gruntfile.js",
+	"/webpack.config.js",
+	"/.idea",
+	"/project-name.iml",
+	"/.vscode"
+];
+
+export function isBlacklisted (item) {
+	return (blacklisted.indexOf(item.path.toLowerCase()));
+};
