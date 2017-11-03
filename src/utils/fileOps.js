@@ -1,5 +1,9 @@
 export function getIconForFile (file) {
 
+	if (file.trash === true) {
+		return "delete";
+	}
+
 	if (file.type === "directory" || file.files instanceof Array)
 		return file["opened"] ? "folder-open" : "folder";
 

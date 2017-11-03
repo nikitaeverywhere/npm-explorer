@@ -13,6 +13,8 @@ const indexPackageSize = (item) => {
 	    files = 0,
 	    dirs = 0;
 
+	item.trash = isBlacklisted(item);
+
 	if (item.type === "directory") {
 		if (item.files instanceof Array) {
 			for (let file of item.files) {
