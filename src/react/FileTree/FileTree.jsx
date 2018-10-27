@@ -28,7 +28,9 @@ export default class FileTree extends React.Component {
 		if (this.props.layout === "mobile") {
 			this.setState({
 				nonce: this.state.nonce + 1,
-				path: this.state.path.concat( getFileName(item) )
+				path: this.state.path.concat(
+					getFileName(item)
+				)
 			});
 		} else {
 			item.opened = !item.opened;

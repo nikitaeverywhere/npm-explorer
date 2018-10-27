@@ -64,7 +64,8 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
     "dom-loaded": "^1.0.1",
-    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.2",
     "js-untar": "^0.1.5",
     "querystringify": "^1.0.0",
     "react": "^16.0.0",
@@ -73,7 +74,6 @@
   },
   "dependencies": {
     "decompress-targz": "^4.1.1",
-    "gulp-sass": "^3.1.0",
     "pako": "^1.0.6"
   }
 }

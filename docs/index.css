@@ -112,6 +112,9 @@ input {
 .icon.folder-open {
   background-image: url(icons/folder-open.svg); }
 
+.icon.delete {
+  background-image: url(icons/delete.svg); }
+
 .layout {
   position: relative;
   height: 100%;

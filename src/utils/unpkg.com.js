@@ -1,4 +1,5 @@
 import { get } from "./http.js";
+import { isBlacklisted } from "./etc.js";
 
 export const domain = `https://unpkg.com`;
 
