@@ -155,7 +155,10 @@ export default class App extends React.Component {
 				</a>
 				<div className="top">
 					<span className="name">
-						{ this.state.data.package.name || "Loading..." }@{ this.state.data.package.version || "..." }
+						<a target="_blank"
+						   href={ `https://www.npmjs.com/package/${ this.state.data.package.name }` }>
+							{ this.state.data.package.name || "Loading..." }
+						</a>@{ this.state.data.package.version || "..." }
 					</span>
 					&nbsp;
 					<span className="author">
