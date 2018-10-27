@@ -154,7 +154,9 @@ export default class App extends React.Component {
 					<img className="logo" src="img/favicon.png"/>
 				</a>
 				<div className="top">
-					<span className="name">{ this.state.data.package.name || "Loading..." }</span>
+					<span className="name">
+						{ this.state.data.package.name || "Loading..." }@{ this.state.data.package.version || "..." }
+					</span>
 					&nbsp;
 					<span className="author">
 						{ author ? <span>by { author }</span> : null }

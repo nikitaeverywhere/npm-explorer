@@ -19,7 +19,7 @@ export default class FileBrowser extends React.Component {
 		if (file.contentType && file.contentType.indexOf("image") === 0)
 			return this.getImageElement(file);
 
-		getFile(this.props.package.name, file.path).then((text) => {
+		getFile(`${ this.props.package.name }@${ this.props.package.version }`, file.path).then((text) => {
 			this.contents.set(file.path, text);
 			this.setState({
 				err: "",
