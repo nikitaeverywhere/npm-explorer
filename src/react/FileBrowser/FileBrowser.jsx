@@ -1,5 +1,6 @@
 import React from "react";
 import { domain, getFile } from "../../utils/unpkg.com.js";
+import AceEditor from "react-ace";
 
 export default class FileBrowser extends React.Component {
 
@@ -10,6 +11,12 @@ export default class FileBrowser extends React.Component {
 		nonce: 0,
 		err: ""
 	};
+	aceEditor = null;
+
+	onLoad = (aceEditor) => {
+		this.aceEditor = aceEditor;
+		this.updateSize();
+	}
 
 	requestFile (file) {
 
@@ -43,6 +50,12 @@ export default class FileBrowser extends React.Component {
 		            alt="image"/>
 	}
 
+	updateSize () {
+		if (this.aceEditor) {
+			this.aceEditor.resize();
+		}
+	}
+
 	render () {
 
 		const file = this.props.file || null;
@@ -50,17 +63,19 @@ export default class FileBrowser extends React.Component {
 			? this.contents.get(file.path)
 			: this.requestFile(file);
 
-		return <div className="file-browser">{ file && !contents
-			?
-			<div>
-				{ this.state.err ? this.state.err : "Loading..." }
-			</div>
-			: !file ?
-			<div/>
-			:
-			<div>
-				{ contents }
-			</div> }
+		return <div className="file-browser">
+			{ file && !contents
+				? <div class="header">
+					{ this.state.err ? this.state.err : "Loading..." }
+				</div>
+				: !file
+					? <div/>
+					: <AceEditor theme="xcode"
+								 name="editor"
+								 readOnly={ true }
+								 onLoad={ this.onLoad }
+								 value={ contents }
+								 editorProps={{$blockScrolling: true}}/> }
 		</div>
 
 	}

@@ -74,6 +74,7 @@
   },
   "dependencies": {
     "decompress-targz": "^4.1.1",
-    "pako": "^1.0.6"
+    "pako": "^1.0.6",
+    "react-ace": "^6.2.0"
   }
 }

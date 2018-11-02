@@ -162,7 +162,6 @@ input {
     box-sizing: border-box; }
     .layout > .col2 > .file-browser {
       height: calc(100% - 24px);
-      padding: 3px;
       box-sizing: border-box; }
     .layout > .col2 > .head {
       padding-left: 3px;
@@ -271,5 +270,9 @@ input {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   overflow-scrolling: touch; }
-  .file-browser .image {
-    max-width: 100%; }
+  .file-browser > .header {
+    height: 22px;
+    font-size: 18px; }
+  .file-browser #editor {
+    width: 100% !important;
+    height: 100% !important; }

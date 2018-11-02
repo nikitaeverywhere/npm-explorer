@@ -1,3 +1,5 @@
+$headHight: 22px;
+
 .file-browser {
 
 	white-space: pre;
@@ -6,8 +8,14 @@
 	-webkit-overflow-scrolling: touch;
 	overflow-scrolling: touch;
 
-	.image {
-		max-width: 100%;
+	> .header {
+		height: $headHight;
+		font-size: 18px;
+	}
+
+	#editor {
+		width: 100% !important;
+		height: 100% !important;
 	}
 
 }

@@ -3,7 +3,7 @@ import { getPackage } from "../utils/unpkg.com.js";
 import FileTree from "./FileTree/FileTree.jsx";
 import { getQueryString } from "../utils/url.js";
 import FileBrowser from "./FileBrowser/FileBrowser.jsx";
-import { getFileName, openTreeToFile } from "../utils/fileOps.js";
+import { openTreeToFile } from "../utils/fileOps.js";
 import { getReadableSize } from "../utils/etc.js";
 
 const getAuthorElement = (packageAuthor) => {
@@ -53,6 +53,7 @@ export default class App extends React.Component {
 	};
 	mounted = false;
 	windowSizeChangeListener = null;
+	fileBrowser = null;
 
 	async componentDidMount () {
 
@@ -120,6 +121,9 @@ export default class App extends React.Component {
 		this.setState({
 			nonce: this.state.nonce + 1
 		});
+		if (this.fileBrowser) {
+			this.fileBrowser.updateSize();
+		}
 	}
 
 	onFileSelect (file) {
@@ -135,6 +139,10 @@ export default class App extends React.Component {
 
 		this.setState({ selectedFile: file });
 
+	}
+
+	fileBrowserRef = (fileBrowser) => {
+		this.fileBrowser = fileBrowser;
 	}
 
 	render () {
@@ -187,13 +195,14 @@ export default class App extends React.Component {
 					<div className="close-button"
 					     onClick={ () => this.onFileSelect(null) }/>
 					{ this.state.selectedFile ? <div className="file-name">{
-						getFileName(this.state.selectedFile)
+						this.state.selectedFile.path
 					}</div> : null }
 				</div>
 				{ !this.state.selectedFile ? null :
 				<FileBrowser package={ this.state.data.package }
 				             layout={ layout }
-					         file={ this.state.selectedFile }/>
+					         file={ this.state.selectedFile }
+							 ref={ this.fileBrowserRef }/>
 				}
 			</div>
 		</div>
