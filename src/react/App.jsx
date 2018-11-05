@@ -1,7 +1,7 @@
 import React from "react";
 import { getPackage } from "../utils/unpkg.com.js";
 import FileTree from "./FileTree/FileTree.jsx";
-import { getQueryString } from "../utils/url.js";
+import { getQueryString, replaceUrlState } from "../utils/url.js";
 import FileBrowser from "./FileBrowser/FileBrowser.jsx";
 import { openTreeToFile } from "../utils/fileOps.js";
 import { getReadableSize } from "../utils/etc.js";
@@ -131,11 +131,13 @@ export default class App extends React.Component {
 		if (file === this.state.selectedFile)
 			return;
 
-		window.history.replaceState({}, document.title, `?p=${ this.state.data.package.name }@${ this.state.data.package.version }${
-			file 
-				? file.path || ""
-				: ""
-		}`);
+		replaceUrlState({
+			p: `${ this.state.data.package.name }@${ this.state.data.package.version }${
+				file 
+					? file.path || ""
+					: ""
+			}`
+		});
 
 		this.setState({ selectedFile: file });
 

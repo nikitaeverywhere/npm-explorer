@@ -1,5 +1,6 @@
 import React from "react";
 import { domain, getFile } from "../../utils/unpkg.com.js";
+import { replaceUrlState, getQueryString } from "../../utils/url.js";
 import AceEditor from "react-ace";
 import "brace/ext/searchbox";
 import "brace/mode/javascript";
@@ -20,6 +21,12 @@ function detectModeFromFileExtension (file) {
 	}
 }
 
+const encodeSelection = ([from, to]) => `${ from.row + 1 }:${ from.column }-${ to.row + 1 }:${ to.column }`;
+const decodeSelection = (string) => {
+	const [fromRow, fromColumn, toRow, toColumn] = string.split(/[-\:]/g);
+	return [{ row: (+fromRow || 1) - 1, column: +fromColumn || 0 }, { row: (+toRow || 1) - 1, column: +toColumn || 0 }];
+}
+
 export default class FileBrowser extends React.Component {
 
 	file = null;
@@ -37,10 +44,18 @@ export default class FileBrowser extends React.Component {
 	onLoad = (aceEditor) => {
 		this.aceEditor = aceEditor;
 		this.updateSize();
+		const [selectionFrom, selectionTo] = decodeSelection(getQueryString().selection || "");
+		aceEditor.gotoLine(selectionFrom.row, selectionFrom.column, true);
+		aceEditor.selection.setSelectionRange({ start: selectionFrom, end: selectionTo }, false);
+		setTimeout(() => { // :(, but it works
+			aceEditor.scrollToLine(selectionFrom.row, true, false, () => {});
+		}, 100);
 	}
 
-	onSelectionChange = (newSelection) => {
-		console.log(newSelection);
+	onSelectionChange = ({ anchor, lead }) => {
+		replaceUrlState({
+			selection: encodeSelection([anchor, lead])
+		});
 	}
 
 	requestFile (file) {
