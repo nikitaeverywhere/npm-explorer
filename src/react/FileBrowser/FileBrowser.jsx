@@ -39,6 +39,10 @@ export default class FileBrowser extends React.Component {
 		this.updateSize();
 	}
 
+	onSelectionChange = (newSelection) => {
+		console.log(newSelection);
+	}
+
 	requestFile (file) {
 
 		if (!file || !this.props.package)
@@ -98,6 +102,7 @@ export default class FileBrowser extends React.Component {
 								 onLoad={ this.onLoad }
 								 value={ contents }
 								 showPrintMargin={ false }
+								 onSelectionChange={ this.onSelectionChange }
 								 editorProps={ this.aceEditorProps }/> }
 		</div>
 
