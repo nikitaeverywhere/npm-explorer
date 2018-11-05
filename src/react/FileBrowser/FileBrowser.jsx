@@ -1,11 +1,32 @@
 import React from "react";
 import { domain, getFile } from "../../utils/unpkg.com.js";
 import AceEditor from "react-ace";
+import "brace/ext/searchbox";
+import "brace/mode/javascript";
+import "brace/mode/jsx";
+import "brace/mode/json";
+import "brace/mode/text";
+import "brace/theme/xcode";
+
+function detectModeFromFileExtension (file) {
+	if (/\.m?js/.test(file)) {
+		return "javascript";
+	} else if (/\.jsx/.test(file)) {
+		return "jsx";
+	} else if (/\.json/.test(file)) {
+		return "json";
+	} else {
+		return "text";
+	}
+}
 
 export default class FileBrowser extends React.Component {
 
 	file = null;
 	contents = new Map();
+	aceEditorProps = {
+		$blockScrolling: true
+	}
 
 	state = {
 		nonce: 0,
@@ -72,10 +93,12 @@ export default class FileBrowser extends React.Component {
 					? <div/>
 					: <AceEditor theme="xcode"
 								 name="editor"
+								 mode={ detectModeFromFileExtension(file.path) }
 								 readOnly={ true }
 								 onLoad={ this.onLoad }
 								 value={ contents }
-								 editorProps={{$blockScrolling: true}}/> }
+								 showPrintMargin={ false }
+								 editorProps={ this.aceEditorProps }/> }
 		</div>
 
 	}

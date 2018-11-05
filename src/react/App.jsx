@@ -131,7 +131,7 @@ export default class App extends React.Component {
 		if (file === this.state.selectedFile)
 			return;
 
-		window.history.replaceState({}, document.title, `?p=${ this.state.data.package.name }${
+		window.history.replaceState({}, document.title, `?p=${ this.state.data.package.name }@${ this.state.data.package.version }${
 			file 
 				? file.path || ""
 				: ""
