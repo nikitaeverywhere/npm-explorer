@@ -43,13 +43,15 @@ export default class FileBrowser extends React.Component {
 
 	onLoad = (aceEditor) => {
 		this.aceEditor = aceEditor;
+		this.aceEditor.setOptions({
+			autoScrollEditorIntoView: true
+		});
 		this.updateSize();
 		const [selectionFrom, selectionTo] = decodeSelection(getQueryString().selection || "");
+		aceEditor.focus();
 		aceEditor.gotoLine(selectionFrom.row, selectionFrom.column, true);
 		aceEditor.selection.setSelectionRange({ start: selectionFrom, end: selectionTo }, false);
-		setTimeout(() => { // :(, but it works
-			aceEditor.scrollToLine(selectionFrom.row, true, false, () => {});
-		}, 100);
+		aceEditor.scrollToLine(selectionFrom.row, true, false, () => {});
 	}
 
 	onSelectionChange = ({ anchor, lead }) => {
@@ -92,7 +94,7 @@ export default class FileBrowser extends React.Component {
 
 	updateSize () {
 		if (this.aceEditor) {
-			this.aceEditor.resize();
+			this.aceEditor.resize(true);
 		}
 	}
 
