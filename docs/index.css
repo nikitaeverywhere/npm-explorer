@@ -23,7 +23,7 @@ html, body, #root {
       overflow: auto; }
 
 input {
-  padding: 6px;
+  padding: 12px;
   border-radius: 15px;
   border: 1px solid gray;
   font-size: inherit;
