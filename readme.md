@@ -29,13 +29,13 @@ is located in the `docs` directory of this repository. To build this project fro
 directory), run the following:
 
 ```bash
-npm run build
+yarn build
 ```
 
 or
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 For non-minified (development) build with sourcemaps.
