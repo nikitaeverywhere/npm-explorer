@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $foregroundColor: #555;
 
 $sizeTiny: 16px;
@@ -11,7 +13,7 @@ $defaultTransitionStyle: ease;
 $defaultTransitionDuration: .3s;
 $defaultBorderRadius: 3px;
 $defaultTransition: all $defaultTransitionDuration $defaultTransitionStyle;
-$fastTransition: all $defaultTransitionDuration / 2 $defaultTransitionStyle;
+$fastTransition: all math.div($defaultTransitionDuration, 2) $defaultTransitionStyle;
 
 @mixin user-select ($value: none) {
 	-webkit-user-select: $value;

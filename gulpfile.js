@@ -1,5 +1,5 @@
 const gulp = require("gulp");
-const scss = require("gulp-sass");
+const scss = require("gulp-dart-sass");
 
 const buildTo = "docs";
 
